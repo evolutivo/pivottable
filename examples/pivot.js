@@ -1145,7 +1145,7 @@
       buttonCompare = $("<button class='toComparebtn'>").text("Agregar").bind("click", function() {
         var cantidadCampos, cuentaSelect, newVal, optionSelected1, optionSelected2, selectCompare;
         optionSelected1 = $(".toCompare1 option:selected");
-        optionSelected2 = $(".toCompare2 option:selected");
+      //  optionSelected2 = $(".toCompare2 option:selected");
         cantidadCampos = $(".pvtAxisContainer").find("li").length;
         ++cantidadCampos;
         cuentaSelect = $(event.target).find("select").length;
@@ -1158,7 +1158,7 @@
         });
         selectCompare.val("compareWith").attr("disabled", true);
         newVal = $("<li class='label label-info axis_" + cantidadCampos + "'>").append($("<div class='div_axis_" + cantidadCampos + "'>"));
-        newVal.append($("<nobr>").text(optionSelected1.text() + "->" + optionSelected2.text()));
+        newVal.append($("<nobr>").text(optionSelected1.text()));
         newVal.append(selectCompare);
         $(".pvtVals").append(newVal);
         return refresh();
@@ -1166,10 +1166,10 @@
       for (i in shownAttributes) {
         x = shownAttributes[i];
         selectCompare1.append($("<option>").val(x).text(x));
-        selectCompare2.append($("<option>").val(x).text(x));
+       // selectCompare2.append($("<option>").val(x).text(x));
       }
       selectCompareControl.append($("<nobr>").text("Campo 1")).append(selectCompare1);
-      selectCompareControl.append($("<nobr>").text("Campo 2")).append(selectCompare2);
+      //selectCompareControl.append($("<nobr>").text("Campo 2")).append(selectCompare2);
       selectCompareControl.append(buttonCompare);
       tr2 = $("<tr>");
       tr2.append($("<td class='pvtAxisContainer pvtHorizList pvtVals'>").css("text-align", "center"));
@@ -1327,11 +1327,11 @@
                   return refresh();
                 });
                 aggregatorSelected = $(this).val();
-                $.each(opts.aggregators, function(key, value) {
-                  if ((aggregatorSelected === "sum" && key.toUpperCase().indexOf("SUMASFRACTION") >= 0) || (aggregatorSelected === "count" && key.toUpperCase().indexOf("COUNTASFRACTION") >= 0)) {
-                    return newSelect.append($("<option>").val(key).text(key));
-                  }
-                });
+//                $.each(opts.aggregators, function(key, value) {
+//                  if ((aggregatorSelected === "sum" && key.toUpperCase().indexOf("SUMASFRACTION") >= 0) || (aggregatorSelected === "count" && key.toUpperCase().indexOf("COUNTASFRACTION") >= 0)) {
+//                    return newSelect.append($("<option>").val(key).text(key));
+//                  }
+//                });
                 newItemConSelect.appendTo($(this).parents("li").get(0));
               }
               return refresh();
